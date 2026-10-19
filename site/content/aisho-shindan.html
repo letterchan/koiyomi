@@ -1,0 +1,72 @@
+---
+title: 生年月日で相性診断【無料】二人の数秘術ナンバーから恋愛の相性を読む
+description: あなたと彼の生年月日を入れるだけで、数秘術のライフパスナンバーから恋愛の相性を診断。相性の良い点・ぶつかりやすい点・長続きのコツまで、登録不要で今すぐ分かります。
+slug: aisho-shindan
+type: tool
+category: aisho
+date: 2026-10-19
+---
+<h1>生年月日で相性診断（数秘術・無料）</h1>
+<p>あなたと彼の生年月日を入れると、数秘術の「ライフパスナンバー」を計算し、二人の恋愛の相性を読み解きます。良い点だけでなく、ぶつかりやすい点と、その乗り越え方も出します。</p>
+<div class="quiz" id="aisho">
+  <div class="form-row"><label for="d1">あなたの生年月日</label><input type="date" id="d1" min="1940-01-01" max="2012-12-31"></div>
+  <div class="form-row"><label for="d2">相手の生年月日</label><input type="date" id="d2" min="1940-01-01" max="2012-12-31"></div>
+  <button type="button" class="btn" id="go">相性を診断する</button>
+  <div class="result" id="res"></div>
+</div>
+<script>
+(function(){
+  var traits={
+    1:{n:'1',k:'リーダー',t:'自分で決めて進みたい人。頼られると強いが、指図されるのは苦手。'},
+    2:{n:'2',k:'調和',t:'相手の気持ちを汲むのが得意。平和を好み、対立を避けるあまり我慢しがち。'},
+    3:{n:'3',k:'表現',t:'明るく話し上手。楽しいことが好きで、重い空気が続くと逃げたくなる。'},
+    4:{n:'4',k:'安定',t:'堅実で約束を守る。急な変化や曖昧な関係にストレスを感じる。'},
+    5:{n:'5',k:'自由',t:'変化と刺激が好き。束縛されると離れたくなるが、惚れると一途。'},
+    6:{n:'6',k:'愛情',t:'面倒見が良く、家庭的。尽くしすぎて見返りを求めてしまうことも。'},
+    7:{n:'7',k:'探求',t:'一人の時間が必要な人。本音を言うまでに時間がかかるが、信じた相手には深い。'},
+    8:{n:'8',k:'実現',t:'目標志向で現実的。仕事や成果を大事にし、恋愛も「ちゃんとした関係」を求める。'},
+    9:{n:'9',k:'包容',t:'広い心で人を受け入れる。理想が高く、現実の相手に失望しやすい面も。'},
+    11:{n:'11',k:'直感',t:'感受性が強く、相手の変化にすぐ気づく。繊細で疲れやすい。'},
+    22:{n:'22',k:'大器',t:'大きな目標を現実にする力。恋愛でも「一緒に何かを築く」相手を求める。'}
+  };
+  // 相性スコア（娯楽用の目安。数秘術で一般に相性が良いとされる組み合わせを基に作成）
+  var good={1:[2,3,5,9],2:[1,4,6,8],3:[1,5,6,9],4:[2,6,7,8],5:[1,3,7,9],6:[2,3,4,9],7:[4,5,7,9],8:[2,4,6,8],9:[1,3,5,6,7]};
+  var hard={1:[1,4,8],2:[5,7],3:[4,7,8],4:[3,5,9],5:[4,6,8],6:[5,7],7:[2,3,6,8],8:[1,3,5,7],9:[2,4,8]};
+  function reduce(n){while(n>9&&n!==11&&n!==22){n=String(n).split('').reduce(function(a,b){return a+parseInt(b,10);},0);}return n;}
+  function lifePath(d){var s=d.replace(/-/g,'').split('').reduce(function(a,b){return a+parseInt(b,10);},0);return reduce(s);}
+  function base(n){return n===11?2:n===22?4:n;}
+  document.getElementById('go').addEventListener('click',function(){
+    var d1=document.getElementById('d1').value,d2=document.getElementById('d2').value,res=document.getElementById('res');
+    if(!d1||!d2){res.innerHTML='<p>二人の生年月日を入力してください。</p>';res.classList.add('active');return;}
+    var a=lifePath(d1),b=lifePath(d2),ab=base(a),bb=base(b);
+    var score=65;
+    if(ab===bb) score=72;
+    if(good[ab].indexOf(bb)>=0) score+=18;
+    if(hard[ab].indexOf(bb)>=0) score-=15;
+    if(a===11||a===22||b===11||b===22) score+=3;
+    score=Math.max(42,Math.min(96,score));
+    var rank=score>=85?'とても良い相性':score>=72?'良い相性':score>=60?'努力しだいの相性':'刺激が多い相性';
+    var ta=traits[a],tb=traits[b];
+    var body='<h3>あなた：ナンバー'+ta.n+'「'+ta.k+'」</h3><p>'+ta.t+'</p><h3>相手：ナンバー'+tb.n+'「'+tb.k+'」</h3><p>'+tb.t+'</p>';
+    if(ab===bb) body+='<h3>二人の関係</h3><p>同じナンバー同士は、お互いの考え方が分かりやすい反面、同じ弱点を二人とも持っています。「分かってくれて当然」と思わず、言葉にすることで長続きします。</p>';
+    else if(good[ab].indexOf(bb)>=0) body+='<h3>二人の関係</h3><p>お互いに足りない部分を自然に補い合える組み合わせです。'+ta.k+'の面と'+tb.k+'の面がかみ合うと、安心感のある関係になります。ただし、頼りきりになると相手が疲れるので、役割を固定しすぎないことがコツです。</p>';
+    else if(hard[ab].indexOf(bb)>=0) body+='<h3>二人の関係</h3><p>大事にしているものが違う組み合わせです。'+ta.k+'を求めるあなたと、'+tb.k+'を求める相手では、同じ出来事でも感じ方が変わります。衝突しやすい分、理解し合えたときの結びつきは強い。「なぜそう思うの？」と聞く回数を増やすと関係が安定します。</p>';
+    else body+='<h3>二人の関係</h3><p>大きくぶつかることも、放っておいて自然にうまくいくこともない、「育てる」タイプの相性です。共通の目標や習慣を一つ持つと、関係に軸ができます。</p>';
+    body+='<h3>この相性を活かすには</h3><p>相性は「合う・合わない」を決めるものではなく、「どこでつまずきやすいか」を先に知るためのものです。結果が良くても油断せず、悪く見えても別れる理由にはなりません。<a href="{{base}}/aisho-warui-toki/">相性が悪いと出たときの受け止め方</a>も読んでみてください。</p>';
+    body+='<h3>占い師に相談するなら</h3><ul><li>「二人の相性で、いちばん気をつけるべき場面はどこですか」</li><li>「彼は私のどんなところに惹かれていますか」</li><li>「この関係が進展する時期はいつ頃ですか」</li></ul>';
+    var url=location.href.split('#')[0];
+    var text='生年月日の相性診断の結果は「'+rank+'」（'+score+'点）でした。 #恋よみ';
+    body+='<div class="share"><a href="https://twitter.com/intent/tweet?text='+encodeURIComponent(text)+'&url='+encodeURIComponent(url)+'" target="_blank" rel="noopener">Xで結果をシェア</a><a href="https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text)+'" target="_blank" rel="noopener">LINEで送る</a></div>';
+    res.innerHTML='<div class="score">'+score+'点</div><div class="rank">'+rank+'</div>'+body;
+    res.classList.add('active');
+    window.scrollTo({top:res.offsetTop-20,behavior:'smooth'});
+  });
+})();
+</script>
+<h2>ライフパスナンバーの計算方法</h2>
+<p>生年月日の数字をすべて足し、1 桁になるまで足し続けた数がライフパスナンバーです。たとえば 1995 年 7 月 23 日なら、1+9+9+5+7+2+3 = 36、3+6 = 9 でナンバー 9。途中で 11 や 22 になった場合は「マスターナンバー」としてそのまま残す流派があり、この診断もその方式です。</p>
+<p>数秘術は「人の性質の傾向」を読む占いで、結果を保証するものではありません。診断は娯楽として楽しみ、二人の会話のきっかけにしてください。</p>
+<h2>相性の結果を、彼との今後に活かしたいなら</h2>
+<p>生年月日の相性は「二人の性質」までしか見られません。「彼は今どう思っているか」「いつ進展するか」といった、時期や気持ちの話は、占い師に直接聞いた方が具体的です。</p>
+{{cta:coconala}}
+<p>相談の仕方は<a href="{{base}}/aisho-uranai-kikikata/">相性を占いで相談するときの聞き方</a>にまとめています。</p>

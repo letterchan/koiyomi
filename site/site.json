@@ -1,0 +1,15 @@
+{
+  "name": "恋よみ",
+  "tagline": "恋の悩みを、占いで少しだけ軽くする",
+  "description": "復縁・片思い・相性の悩みに向き合う無料診断と、電話占いの選び方。恋よみ編集部が占いを「使い方」から解説します。",
+  "base_url": "https://letterchan.github.io",
+  "base_path": "/koiyomi",
+  "categories": {
+    "fukuen": "復縁",
+    "kataomoi": "片思い・彼の本音",
+    "aisho": "相性・生年月日",
+    "denwa": "電話占いの選び方",
+    "unsei": "2027年の運勢",
+    "guide": "占いの使い方"
+  }
+}
