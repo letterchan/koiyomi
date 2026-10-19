@@ -37,6 +37,7 @@ function initQuiz(cfg){
     res.classList.add('active');
     res.querySelector('.retry').addEventListener('click',function(){i=0;total=0;answers=[];res.classList.remove('active');show();});
     window.scrollTo({top:root.offsetTop-20,behavior:'smooth'});
+    if(typeof gtag==='function') gtag('event','quiz_result',{quiz:location.pathname, result:r.title});
   }
   show();
 }

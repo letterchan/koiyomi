@@ -14,6 +14,8 @@
 <meta property="og:image" content="{{og_image}}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:,">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L1F4RDR6XB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-L1F4RDR6XB');</script>
 <link rel="stylesheet" href="{{base_path}}/static/style.css">
 </head>
 <body class="{{body_class}}">
@@ -50,5 +52,6 @@
   </nav>
   <p>&copy; {{year}} {{site_name}}</p>
 </footer>
+<script>document.addEventListener('click',e=>{const a=e.target.closest('a.cta-btn'); if(a&&typeof gtag==='function') gtag('event','cta_click',{cta:a.textContent.trim().slice(0,40), page:location.pathname});});</script>
 </body>
 </html>
