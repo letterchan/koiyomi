@@ -123,3 +123,4 @@ date: 2026-10-19
 ## あわせて読みたい
 
 - [元彼の気持ちが知りたい。行動から読む5つのサインと聞き方]({{base}}/fukuen-moto-kare-kimochi/)
+- [元彼に新しい彼女ができた。それでも復縁を考えるときの整理]({{base}}/fukuen-kare-ni-atarashii-hito/)

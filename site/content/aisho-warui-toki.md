@@ -74,3 +74,4 @@ date: 2026-10-19
 
 - [遠距離恋愛の不安。続くかどうかを占いで聞くコツ]({{base}}/enkyori-renai-fuan/)
 - [ケンカが多いのは相性のせい？占いで整理する前に見る3点]({{base}}/aisho-kenka-ooi/)
+- [血液型の相性は信じていい？占いとして楽しむ線引き]({{base}}/aisho-ketsuekigata-shinjiru/)

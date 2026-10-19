@@ -120,3 +120,4 @@ date: 2026-10-19
 
 - [占い依存をやめたい。使いすぎのサインと距離の置き方]({{base}}/uranai-izon-yamekata/)
 - [不倫・既婚者との恋を占いで相談するときの注意]({{base}}/furin-renai-uranai-soudan/)
+- [占いで悪い結果が出たときの受け止め方。引きずらないコツ]({{base}}/uranai-kekka-warui-toki/)

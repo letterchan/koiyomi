@@ -122,3 +122,4 @@ SNSに映る彼より、あなた自身の毎日のほうがずっと大切で�
 ## あわせて読みたい
 
 - [元彼の気持ちが知りたい。行動から読む5つのサインと聞き方]({{base}}/fukuen-moto-kare-kimochi/)
+- [友達からやり直すのはアリ？復縁の再スタートで気をつけること]({{base}}/fukuen-tomodachi-kara-yarinaosu/)

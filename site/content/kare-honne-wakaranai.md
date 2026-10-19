@@ -90,3 +90,4 @@ LINE は返ってくるのに、会う話にはならない。優しいのに、
 ## あわせて読みたい
 
 - [彼から連絡が来ない。不安なときの考え方と聞き方]({{base}}/kare-renraku-konai-fuan/)
+- [LINEの返信が遅い彼。脈なしと決める前に見ること]({{base}}/kataomoi-line-henshin-osoi/)

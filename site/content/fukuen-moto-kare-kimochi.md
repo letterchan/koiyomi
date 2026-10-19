@@ -119,3 +119,4 @@ date: 2026-10-19
 ## あわせて読みたい
 
 - [結婚を考えていた相手と別れた。復縁すべきかの判断軸]({{base}}/fukuen-kekkon-mae-wakare/)
+- [元彼から連絡が来た。返事の仕方と、戻るかどうかの見極め]({{base}}/fukuen-kare-kara-renraku-kita/)

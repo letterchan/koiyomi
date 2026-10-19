@@ -112,3 +112,4 @@ date: 2026-10-19
 
 - [電話占いの料金の見方。1分単価・初回特典・支払い方法]({{base}}/denwa-uranai-ryoukin-kurabe/)
 - [夜中に不安で眠れないとき。電話占いの使い方と注意点]({{base}}/denwa-uranai-yoru-soudan/)
+- [電話占いが怖い・不安な人へ。安全に使うためのチェックリスト]({{base}}/denwa-uranai-hajimete-kowai/)
