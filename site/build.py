@@ -103,6 +103,15 @@ def card(p):
     return f"""<a class="card" href="{p['url']}"><span class="card-cat">{label}</span><span class="card-title">{p['title']}</span><span class="card-desc">{p.get('description','')}</span></a>"""
 
 
+def og_image_url(meta):
+    """front matter の og_image（static/og/ 配下のファイル名または static からの相対パス）を絶対 URL にする。"""
+    rel = (meta or {}).get("og_image") or "og-home.png"
+    rel = rel.lstrip("/")
+    if not rel.startswith("static/"):
+        rel = "static/og/" + rel
+    return f"{BASE_URL}{BASE_PATH}/{rel}"
+
+
 def main():
     base = (TEMPLATES / "base.html").read_text(encoding="utf-8")
     pages = load_pages()
@@ -139,6 +148,7 @@ def main():
             category=CATEGORIES.get(p["category"], p["category"]),
             year=date.today().year,
             body_class=p["type"],
+            og_image=og_image_url(p),
         )
         d = PUBLIC / p["slug"]
         d.mkdir(parents=True, exist_ok=True)
@@ -174,6 +184,7 @@ def main():
         category="",
         year=date.today().year,
         body_class="home",
+        og_image=og_image_url(idx),
     )
     (PUBLIC / "index.html").write_text(out, encoding="utf-8")
 
