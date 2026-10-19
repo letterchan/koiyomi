@@ -47,6 +47,7 @@ blockquote{margin:1em 0;padding:.6em 1em;background:#fff;border-left:4px solid v
 .quiz .bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
 .quiz .result{display:none}
 .quiz .result.active{display:block}
+.quiz .score-label{text-align:center;font-size:.9rem;color:var(--muted);margin-top:.4em}
 .quiz .score{font-size:2.2rem;font-weight:800;color:var(--accent);text-align:center;margin:.2em 0}
 .quiz .rank{text-align:center;font-weight:700;font-size:1.2rem;margin-bottom:.6em}
 .quiz .share{display:flex;gap:8px;justify-content:center;margin:12px 0}

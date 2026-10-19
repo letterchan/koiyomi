@@ -32,7 +32,7 @@ function initQuiz(cfg){
     var x='https://twitter.com/intent/tweet?text='+encodeURIComponent(text+' '+cfg.siteName)+'&url='+encodeURIComponent(url);
     var line='https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text);
     var res=root.querySelector('.result');
-    res.innerHTML='<div class="score">'+r.score+'</div><div class="rank">'+r.title+'</div>'+r.body+
+    res.innerHTML=(cfg.scoreLabel?'<div class="score-label">'+cfg.scoreLabel+'</div>':'')+'<div class="score">'+r.score+'</div><div class="rank">'+r.title+'</div>'+r.body+
       '<div class="share"><a href="'+x+'" target="_blank" rel="noopener">Xで結果をシェア</a><a href="'+line+'" target="_blank" rel="noopener">LINEで送る</a><button type="button" class="retry">もう一度診断する</button></div>';
     res.classList.add('active');
     res.querySelector('.retry').addEventListener('click',function(){i=0;total=0;answers=[];res.classList.remove('active');show();});
