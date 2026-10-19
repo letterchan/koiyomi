@@ -85,3 +85,4 @@ LINE で話題が自然に続くようになったら、会う段階です。
 
 - [彼の本音が分からないとき、行動から読み取る 7 つのサイン]({{base}}/kare-honne-wakaranai/)
 - [職場恋愛の片思い。距離の縮め方と相談のしかた]({{base}}/shokuba-renai-kataomoi/)
+- [年下の彼への片思い。距離感と相談のしかた]({{base}}/kataomoi-nenshita-kare/)

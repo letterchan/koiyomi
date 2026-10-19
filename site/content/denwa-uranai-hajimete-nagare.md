@@ -107,3 +107,8 @@ date: 2026-10-19
 - 「今は待つ時期か、動く時期か。その理由も教えてください」
 
 {{cta:coconala}}
+
+## あわせて読みたい
+
+- [電話占いの料金の見方。1分単価・初回特典・支払い方法]({{base}}/denwa-uranai-ryoukin-kurabe/)
+- [夜中に不安で眠れないとき。電話占いの使い方と注意点]({{base}}/denwa-uranai-yoru-soudan/)
