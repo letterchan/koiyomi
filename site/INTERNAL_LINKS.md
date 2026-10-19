@@ -1,11 +1,12 @@
 # 内部リンク整備の記録
 
-- 作成日: 2026-10-19（同日、記事追加バッチ 2 の 10 本を反映して更新。2026-10-20 にバッチ 3 の 10 本を反映）
+- 作成日: 2026-10-19（同日、記事追加バッチ 2 の 10 本を反映して更新。2026-10-20 にバッチ 3 とバッチ 4 の各 10 本を反映）
 - 集計方法: `site/content/` の各ファイル本文にある `{{base}}/<slug>/` 形式のリンクを数えた（自分自身へのリンクは除外。テンプレートが自動で出す関連記事カードは数えない）。
 - 対象外: index、診断 3 本（fukuen-shindan / kare-honne-shindan / aisho-shindan）、法務・運営ページ 4 本（about / contact / privacy / disclaimer）。ただしリンク元としては数えている。
 - 孤立記事（被リンク 0）: 整備前 2 本（denwa-uranai-chat-tigai, kare-honne-wakaranai）。新記事 10 本の追加直後は 6 本 → 既存記事の末尾に「あわせて読みたい」節を追加して 0 本。
 - バッチ 2（10 本）: 新記事同士の「あわせて読みたい」と、既存記事末尾の「あわせて読みたい」への追記で、追加後も孤立記事 0 本（対象記事 52 本）。
 - バッチ 3（10 本、2026-10-20）: 新記事同士の「あわせて読みたい」（カテゴリ内で循環）と、既存記事 10 本の既存「あわせて読みたい」節への 1 行追記で、追加後も孤立記事 0 本（対象記事 62 本）。H2 を新設した既存記事は無い（新記事はすべて H2 7 本以内）。
+- バッチ 4（10 本、2026-10-20）: 新記事同士の「あわせて読みたい」（カテゴリ内で循環。denwa と guide の 2 本は相互）と、既存記事 6 本の既存「あわせて読みたい」節への 1 行追記で、追加後も孤立記事 0 本（対象記事 72 本）。H2 を新設した既存記事は無い（新記事はすべて H2 7 本）。
 
 ## 「あわせて読みたい」を追加した既存記事
 
@@ -75,69 +76,105 @@
 | denwa-uranai-hajimete-kowai | kare-honne-shindan, denwa-uranai-hajimete-nagare, denwa-uranai-ryoukin-yosan | uranai-kekka-warui-toki |
 | uranai-kekka-warui-toki | kare-honne-shindan, uranai-ataranai-toki, uranai-izon-yamekata | denwa-uranai-hajimete-kowai |
 
-## 被リンク一覧（バッチ 3 反映後）
+## バッチ 4 で「あわせて読みたい」に追記した既存記事
+
+| 追加先 | 追加したリンク |
+|---|---|
+| fukuen-kare-ni-atarashii-hito | fukuen-kekkonshita-moto-kare |
+| kataomoi-akirameru-kijun | kataomoi-kirai-ja-nai-kedo |
+| aisho-warui-toki | aisho-seiza-ai-mikata |
+| denwa-uranai-hajimete-kowai | denwa-uranai-nando-mo-tsukau |
+| uranai-kekka-warui-toki | uranai-shi-ni-iwareta-koto |
+| unsei-2027-renai-matome | unsei-2027-kekkon-seiza |
+
+## バッチ 4 の新記事の本文リンクと「あわせて読みたい」
+
+| 記事 | 本文の内部リンク（診断・同カテゴリほか） | あわせて読みたい |
+|---|---|---|
+| fukuen-kekkonshita-moto-kare | fukuen-sns-mitsumeru, fukuen-shindan, fukuen-kare-ni-atarashii-hito | fukuen-nando-mo-wakareru |
+| fukuen-nando-mo-wakareru | fukuen-furareta-riyuu, fukuen-shindan, fukuen-dekinai-hito-tokucho | fukuen-jibun-kara-futta |
+| fukuen-jibun-kara-futta | fukuen-shindan, fukuen-line-okurikata, fukuen-reikyaku-kikan | fukuen-kekkonshita-moto-kare |
+| kataomoi-kirai-ja-nai-kedo | kare-honne-shindan, kataomoi-kokuhaku-timing, kataomoi-akirameru-kijun | kataomoi-shigoto-isogashii-kare |
+| kataomoi-shigoto-isogashii-kare | kataomoi-line-henshin-osoi, kare-honne-shindan, kare-renraku-konai-fuan | kataomoi-kirai-ja-nai-kedo |
+| aisho-kachikan-chigai | aisho-kenka-ooi, aisho-shindan, aisho-kekkon-mitame | aisho-seiza-ai-mikata |
+| aisho-seiza-ai-mikata | aisho-seinengappi-mikata, aisho-warui-toki, aisho-shindan | aisho-kachikan-chigai |
+| denwa-uranai-nando-mo-tsukau | uranai-izon-yamekata, denwa-uranai-ryoukin-yosan, kare-honne-shindan | uranai-shi-ni-iwareta-koto |
+| unsei-2027-kekkon-seiza | unsei-2027-renai-matome, aisho-shindan | unsei-2027-fukuen-seiza, kekkon-shitai-kare-ugokanai |
+| uranai-shi-ni-iwareta-koto | kare-honne-shindan, uranai-kekka-warui-toki, uranai-ataranai-toki | denwa-uranai-nando-mo-tsukau |
+
+## 被リンク一覧（バッチ 4 反映後）
 
 | 記事 slug | 被リンク数 | リンク元 |
 |---|---|---|
-| aisho-kekkon-mitame | 2 | aisho-kenka-ooi, aisho-toshi-no-sa |
-| aisho-kenka-ooi | 3 | aisho-kekkon-mitame, aisho-toshi-no-sa, aisho-warui-toki |
+| aisho-kachikan-chigai | 1 | aisho-seiza-ai-mikata |
+| aisho-kekkon-mitame | 3 | aisho-kachikan-chigai, aisho-kenka-ooi, aisho-toshi-no-sa |
+| aisho-kenka-ooi | 4 | aisho-kachikan-chigai, aisho-kekkon-mitame, aisho-toshi-no-sa, aisho-warui-toki |
 | aisho-ketsuekigata-shinjiru | 2 | aisho-toshi-no-sa, aisho-warui-toki |
-| aisho-seinengappi-mikata | 3 | aisho-kekkon-mitame, aisho-ketsuekigata-shinjiru, aisho-warui-toki |
+| aisho-seinengappi-mikata | 4 | aisho-kekkon-mitame, aisho-ketsuekigata-shinjiru, aisho-seiza-ai-mikata, aisho-warui-toki |
+| aisho-seiza-ai-mikata | 2 | aisho-kachikan-chigai, aisho-warui-toki |
 | aisho-toshi-no-sa | 2 | aisho-kekkon-mitame, aisho-ketsuekigata-shinjiru |
 | aisho-uranai-kikikata | 4 | aisho-kekkon-mitame, aisho-shindan, aisho-warui-toki, enkyori-renai-fuan |
-| aisho-warui-toki | 6 | aisho-kenka-ooi, aisho-ketsuekigata-shinjiru, aisho-seinengappi-mikata, aisho-shindan, aisho-uranai-kikikata, enkyori-renai-fuan |
+| aisho-warui-toki | 7 | aisho-kenka-ooi, aisho-ketsuekigata-shinjiru, aisho-seinengappi-mikata, aisho-seiza-ai-mikata, aisho-shindan, aisho-uranai-kikikata, enkyori-renai-fuan |
 | denwa-uranai-chat-tigai | 1 | denwa-uranai-erabikata |
 | denwa-uranai-erabikata | 13 | aisho-uranai-kikikata, contact, denwa-uranai-chat-tigai, denwa-uranai-hajimete-nagare, denwa-uranai-ryoukin-kurabe, denwa-uranai-ryoukin-yosan, fukuen-shindan, fukuen-uranai-kikikata, kataomoi-uranai-kikikata, unsei-2027-renai-matome, uranai-ataranai-toki, uranai-tsukaikata, uranaishi-erabikata |
 | denwa-uranai-fukuen-tokui | 1 | denwa-uranai-erabikata |
 | denwa-uranai-hajimete-kowai | 2 | denwa-uranai-hajimete-nagare, uranai-kekka-warui-toki |
 | denwa-uranai-hajimete-nagare | 4 | denwa-uranai-erabikata, denwa-uranai-fukuen-tokui, denwa-uranai-hajimete-kowai, denwa-uranai-yoru-soudan |
+| denwa-uranai-nando-mo-tsukau | 2 | denwa-uranai-hajimete-kowai, uranai-shi-ni-iwareta-koto |
 | denwa-uranai-ryoukin-kurabe | 2 | denwa-uranai-hajimete-nagare, denwa-uranai-yoru-soudan |
-| denwa-uranai-ryoukin-yosan | 9 | denwa-uranai-chat-tigai, denwa-uranai-erabikata, denwa-uranai-fukuen-tokui, denwa-uranai-hajimete-kowai, denwa-uranai-hajimete-nagare, denwa-uranai-ryoukin-kurabe, denwa-uranai-yoru-soudan, fukuen-shindan, uranai-izon-yamekata |
+| denwa-uranai-ryoukin-yosan | 10 | denwa-uranai-chat-tigai, denwa-uranai-erabikata, denwa-uranai-fukuen-tokui, denwa-uranai-hajimete-kowai, denwa-uranai-hajimete-nagare, denwa-uranai-nando-mo-tsukau, denwa-uranai-ryoukin-kurabe, denwa-uranai-yoru-soudan, fukuen-shindan, uranai-izon-yamekata |
 | denwa-uranai-yoru-soudan | 2 | denwa-uranai-hajimete-nagare, denwa-uranai-ryoukin-kurabe |
 | enkyori-renai-fuan | 1 | aisho-warui-toki |
-| fukuen-dekinai-hito-tokucho | 4 | fukuen-furareta-riyuu, fukuen-kare-ni-atarashii-hito, fukuen-kekkon-mae-wakare, fukuen-reikyaku-kikan |
-| fukuen-furareta-riyuu | 3 | fukuen-kekkon-mae-wakare, fukuen-reikyaku-kikan, fukuen-renraku-tatsu |
+| fukuen-dekinai-hito-tokucho | 5 | fukuen-furareta-riyuu, fukuen-kare-ni-atarashii-hito, fukuen-kekkon-mae-wakare, fukuen-nando-mo-wakareru, fukuen-reikyaku-kikan |
+| fukuen-furareta-riyuu | 4 | fukuen-kekkon-mae-wakare, fukuen-nando-mo-wakareru, fukuen-reikyaku-kikan, fukuen-renraku-tatsu |
+| fukuen-jibun-kara-futta | 1 | fukuen-nando-mo-wakareru |
 | fukuen-kanousei-sign | 3 | fukuen-dekinai-hito-tokucho, fukuen-line-okurikata, fukuen-moto-kare-kimochi |
 | fukuen-kare-kara-renraku-kita | 3 | fukuen-kare-ni-atarashii-hito, fukuen-moto-kare-kimochi, fukuen-tomodachi-kara-yarinaosu |
-| fukuen-kare-ni-atarashii-hito | 2 | fukuen-dekinai-hito-tokucho, fukuen-tomodachi-kara-yarinaosu |
+| fukuen-kare-ni-atarashii-hito | 3 | fukuen-dekinai-hito-tokucho, fukuen-kekkonshita-moto-kare, fukuen-tomodachi-kara-yarinaosu |
 | fukuen-kekkon-mae-wakare | 1 | fukuen-moto-kare-kimochi |
-| fukuen-line-okurikata | 5 | fukuen-furareta-riyuu, fukuen-kanousei-sign, fukuen-moto-kare-kimochi, fukuen-reikyaku-kikan, fukuen-renraku-tatsu |
+| fukuen-kekkonshita-moto-kare | 2 | fukuen-jibun-kara-futta, fukuen-kare-ni-atarashii-hito |
+| fukuen-line-okurikata | 6 | fukuen-furareta-riyuu, fukuen-jibun-kara-futta, fukuen-kanousei-sign, fukuen-moto-kare-kimochi, fukuen-reikyaku-kikan, fukuen-renraku-tatsu |
 | fukuen-moto-kare-kimochi | 3 | fukuen-dekinai-hito-tokucho, fukuen-kare-kara-renraku-kita, fukuen-sns-mitsumeru |
-| fukuen-reikyaku-kikan | 6 | denwa-uranai-fukuen-tokui, fukuen-dekinai-hito-tokucho, fukuen-renraku-tatsu, fukuen-sns-mitsumeru, fukuen-tomodachi-kara-yarinaosu, unsei-2027-fukuen-seiza |
+| fukuen-nando-mo-wakareru | 1 | fukuen-kekkonshita-moto-kare |
+| fukuen-reikyaku-kikan | 7 | denwa-uranai-fukuen-tokui, fukuen-dekinai-hito-tokucho, fukuen-jibun-kara-futta, fukuen-renraku-tatsu, fukuen-sns-mitsumeru, fukuen-tomodachi-kara-yarinaosu, unsei-2027-fukuen-seiza |
 | fukuen-renraku-tatsu | 6 | fukuen-furareta-riyuu, fukuen-kanousei-sign, fukuen-line-okurikata, fukuen-reikyaku-kikan, fukuen-shindan, fukuen-sns-mitsumeru |
-| fukuen-sns-mitsumeru | 2 | fukuen-kare-ni-atarashii-hito, fukuen-kekkon-mae-wakare |
+| fukuen-sns-mitsumeru | 3 | fukuen-kare-ni-atarashii-hito, fukuen-kekkon-mae-wakare, fukuen-kekkonshita-moto-kare |
 | fukuen-tomodachi-kara-yarinaosu | 2 | fukuen-kare-kara-renraku-kita, fukuen-sns-mitsumeru |
 | fukuen-uranai-kikikata | 4 | denwa-uranai-fukuen-tokui, fukuen-shindan, uranai-ataranai-toki, uranai-tsukaikata |
 | furin-renai-uranai-soudan | 1 | uranai-tsukaikata |
 | kare-honne-wakaranai | 3 | kare-renraku-konai-fuan, kataomoi-kyori-chijimeru, kataomoi-tomodachi-ijou |
-| kare-renraku-konai-fuan | 4 | kare-honne-wakaranai, kataomoi-line-henshin-osoi, kekkon-shitai-kare-ugokanai, matching-app-renai-uranai |
-| kataomoi-akirameru-kijun | 5 | kare-honne-shindan, kataomoi-furareta-ato, kataomoi-kyori-chijimeru, kataomoi-tomodachi-ijou, kekkon-shitai-kare-ugokanai |
+| kare-renraku-konai-fuan | 5 | kare-honne-wakaranai, kataomoi-line-henshin-osoi, kataomoi-shigoto-isogashii-kare, kekkon-shitai-kare-ugokanai, matching-app-renai-uranai |
+| kataomoi-akirameru-kijun | 6 | kare-honne-shindan, kataomoi-furareta-ato, kataomoi-kirai-ja-nai-kedo, kataomoi-kyori-chijimeru, kataomoi-tomodachi-ijou, kekkon-shitai-kare-ugokanai |
 | kataomoi-furareta-ato | 2 | kataomoi-akirameru-kijun, kataomoi-line-henshin-osoi |
-| kataomoi-kokuhaku-timing | 2 | kataomoi-furareta-ato, kataomoi-kyori-chijimeru |
+| kataomoi-kirai-ja-nai-kedo | 2 | kataomoi-akirameru-kijun, kataomoi-shigoto-isogashii-kare |
+| kataomoi-kokuhaku-timing | 3 | kataomoi-furareta-ato, kataomoi-kirai-ja-nai-kedo, kataomoi-kyori-chijimeru |
 | kataomoi-kyori-chijimeru | 5 | kare-honne-shindan, kataomoi-akirameru-kijun, kataomoi-kokuhaku-timing, kataomoi-nenshita-kare, shokuba-renai-kataomoi |
-| kataomoi-line-henshin-osoi | 2 | kare-honne-wakaranai, kataomoi-kokuhaku-timing |
+| kataomoi-line-henshin-osoi | 3 | kare-honne-wakaranai, kataomoi-kokuhaku-timing, kataomoi-shigoto-isogashii-kare |
 | kataomoi-nenshita-kare | 2 | kataomoi-kyori-chijimeru, kataomoi-tomodachi-ijou |
+| kataomoi-shigoto-isogashii-kare | 1 | kataomoi-kirai-ja-nai-kedo |
 | kataomoi-tomodachi-ijou | 1 | kataomoi-nenshita-kare |
 | kataomoi-uranai-kikikata | 4 | kare-honne-shindan, kare-honne-wakaranai, kataomoi-nenshita-kare, matching-app-renai-uranai |
-| kekkon-shitai-kare-ugokanai | 1 | kataomoi-akirameru-kijun |
+| kekkon-shitai-kare-ugokanai | 2 | kataomoi-akirameru-kijun, unsei-2027-kekkon-seiza |
 | matching-app-renai-uranai | 2 | kare-renraku-konai-fuan, kataomoi-uranai-kikikata |
 | shokuba-renai-kataomoi | 1 | kataomoi-kyori-chijimeru |
 | unsei-2027-aquarius | 1 | unsei-2027-renai-matome |
 | unsei-2027-aries | 1 | unsei-2027-renai-matome |
 | unsei-2027-cancer | 1 | unsei-2027-renai-matome |
 | unsei-2027-capricorn | 1 | unsei-2027-renai-matome |
-| unsei-2027-fukuen-seiza | 1 | unsei-2027-renai-matome |
+| unsei-2027-fukuen-seiza | 2 | unsei-2027-kekkon-seiza, unsei-2027-renai-matome |
 | unsei-2027-gemini | 1 | unsei-2027-renai-matome |
+| unsei-2027-kekkon-seiza | 1 | unsei-2027-renai-matome |
 | unsei-2027-leo | 1 | unsei-2027-renai-matome |
 | unsei-2027-libra | 1 | unsei-2027-renai-matome |
 | unsei-2027-pisces | 1 | unsei-2027-renai-matome |
-| unsei-2027-renai-matome | 13 | unsei-2027-aquarius, unsei-2027-aries, unsei-2027-cancer, unsei-2027-capricorn, unsei-2027-fukuen-seiza, unsei-2027-gemini, unsei-2027-leo, unsei-2027-libra, unsei-2027-pisces, unsei-2027-sagittarius, unsei-2027-scorpio, unsei-2027-taurus, unsei-2027-virgo |
+| unsei-2027-renai-matome | 14 | unsei-2027-aquarius, unsei-2027-aries, unsei-2027-cancer, unsei-2027-capricorn, unsei-2027-fukuen-seiza, unsei-2027-gemini, unsei-2027-kekkon-seiza, unsei-2027-leo, unsei-2027-libra, unsei-2027-pisces, unsei-2027-sagittarius, unsei-2027-scorpio, unsei-2027-taurus, unsei-2027-virgo |
 | unsei-2027-sagittarius | 1 | unsei-2027-renai-matome |
 | unsei-2027-scorpio | 1 | unsei-2027-renai-matome |
 | unsei-2027-taurus | 1 | unsei-2027-renai-matome |
 | unsei-2027-virgo | 1 | unsei-2027-renai-matome |
-| uranai-ataranai-toki | 3 | uranai-izon-yamekata, uranai-kekka-warui-toki, uranai-tsukaikata |
-| uranai-izon-yamekata | 4 | denwa-uranai-yoru-soudan, furin-renai-uranai-soudan, uranai-kekka-warui-toki, uranai-tsukaikata |
-| uranai-kekka-warui-toki | 2 | denwa-uranai-hajimete-kowai, uranai-tsukaikata |
+| uranai-ataranai-toki | 4 | uranai-izon-yamekata, uranai-kekka-warui-toki, uranai-shi-ni-iwareta-koto, uranai-tsukaikata |
+| uranai-izon-yamekata | 5 | denwa-uranai-nando-mo-tsukau, denwa-uranai-yoru-soudan, furin-renai-uranai-soudan, uranai-kekka-warui-toki, uranai-tsukaikata |
+| uranai-kekka-warui-toki | 3 | denwa-uranai-hajimete-kowai, uranai-shi-ni-iwareta-koto, uranai-tsukaikata |
+| uranai-shi-ni-iwareta-koto | 2 | denwa-uranai-nando-mo-tsukau, uranai-kekka-warui-toki |
 | uranai-tsukaikata | 4 | fukuen-uranai-kikikata, furin-renai-uranai-soudan, uranai-ataranai-toki, uranai-izon-yamekata |
 | uranaishi-erabikata | 3 | denwa-uranai-erabikata, denwa-uranai-fukuen-tokui, denwa-uranai-hajimete-nagare |

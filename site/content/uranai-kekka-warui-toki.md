@@ -112,3 +112,4 @@ date: 2026-10-20
 ## あわせて読みたい
 
 - [電話占いが怖い・不安な人へ。安全に使うためのチェックリスト]({{base}}/denwa-uranai-hajimete-kowai/)
+- [占い師に言われたことが頭から離れない。受け止め方と手放し方]({{base}}/uranai-shi-ni-iwareta-koto/)

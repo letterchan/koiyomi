@@ -112,6 +112,61 @@ def og_image_url(meta):
     return f"{BASE_URL}{BASE_PATH}/{rel}"
 
 
+def jsonld(p, canonical, og_image, is_index=False):
+    """ページごとの JSON-LD（@graph）を <script> に埋め込める文字列で返す。"""
+    home = f"{BASE_URL}{BASE_PATH}/"
+    crumbs = [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": home}]
+    if not is_index:
+        if p.get("type") != "page":
+            crumbs.append({"@type": "ListItem", "position": 2, "name": CATEGORIES.get(p["category"], p["category"])})
+        crumbs.append({"@type": "ListItem", "position": len(crumbs) + 1, "name": p["title"], "item": canonical})
+    graph = [{"@type": "BreadcrumbList", "itemListElement": crumbs}]
+    org = {"@type": "Organization", "name": "恋よみ編集部"}
+    if is_index:
+        graph.append({"@type": "WebSite", "name": SITE["name"], "url": home})
+    elif p.get("type") == "article":
+        graph.append({
+            "@type": "Article",
+            "headline": p["title"],
+            "description": p.get("description", ""),
+            "datePublished": p["date"],
+            "dateModified": p["date"],
+            "author": org,
+            "publisher": org,
+            "mainEntityOfPage": canonical,
+            "image": og_image,
+        })
+    elif p.get("type") == "tool":
+        graph.append({
+            "@type": "WebApplication",
+            "name": p["title"],
+            "url": canonical,
+            "applicationCategory": "LifestyleApplication",
+            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"},
+        })
+        faq = faq_items(p["html"])
+        if faq:
+            graph.append({"@type": "FAQPage", "mainEntity": faq})
+    data = {"@context": "https://schema.org", "@graph": graph}
+    s = json.dumps(data, ensure_ascii=False)
+    s = s.replace("<", "\u003c").replace(">", "\u003e").replace("&", "\u0026")
+    return f'<script type="application/ld+json">{s}</script>'
+
+
+def faq_items(html):
+    """本文に「よくある質問」見出しの節があれば、その中の h3（質問）と続く本文（回答）を返す。無ければ空。"""
+    m = re.search(r"<h2[^>]*>[^<]*よくある質問[^<]*</h2>(.*?)(?=<h2|$)", html, re.S)
+    if not m:
+        return []
+    items = []
+    for q, a in re.findall(r"<h3[^>]*>(.*?)</h3>(.*?)(?=<h3|$)", m.group(1), re.S):
+        q = re.sub(r"<[^>]+>", "", q).strip()
+        a = re.sub(r"<[^>]+>", "", a).strip()
+        if q and a:
+            items.append({"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}})
+    return items
+
+
 def main():
     base = (TEMPLATES / "base.html").read_text(encoding="utf-8")
     pages = load_pages()
@@ -149,6 +204,7 @@ def main():
             year=date.today().year,
             body_class=p["type"],
             og_image=og_image_url(p),
+            jsonld=jsonld(p, f"{BASE_URL}{p['url']}", og_image_url(p)),
         )
         d = PUBLIC / p["slug"]
         d.mkdir(parents=True, exist_ok=True)
@@ -185,6 +241,7 @@ def main():
         year=date.today().year,
         body_class="home",
         og_image=og_image_url(idx),
+        jsonld=jsonld(idx or {}, f"{BASE_URL}{BASE_PATH}/", og_image_url(idx), is_index=True),
     )
     (PUBLIC / "index.html").write_text(out, encoding="utf-8")
 

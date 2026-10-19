@@ -75,3 +75,4 @@ date: 2026-10-19
 
 - [結婚したいのに彼が動かない。占いで何を聞くか]({{base}}/kekkon-shitai-kare-ugokanai/)
 - [片思いで振られた後。気持ちの整理と次に進むまで]({{base}}/kataomoi-furareta-ato/)
+- [「嫌いじゃないけど」と言われた。可能性があるか見極める質問]({{base}}/kataomoi-kirai-ja-nai-kedo/)

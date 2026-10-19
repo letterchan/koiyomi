@@ -106,3 +106,4 @@ date: 2026-10-20
 ## あわせて読みたい
 
 - [占いで悪い結果が出たときの受け止め方。引きずらないコツ]({{base}}/uranai-kekka-warui-toki/)
+- [電話占いを何度も使ってしまう。頻度の目安と戻し方]({{base}}/denwa-uranai-nando-mo-tsukau/)

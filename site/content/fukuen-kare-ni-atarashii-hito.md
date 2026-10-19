@@ -108,3 +108,4 @@ SNSを見てしまう気持ちとの付き合い方は、[元彼のSNSを見て�
 ## あわせて読みたい
 
 - [元彼から連絡が来た。返事の仕方と、戻るかどうかの見極め]({{base}}/fukuen-kare-kara-renraku-kita/)
+- [元彼が結婚した。それでも気持ちが残るときの整理]({{base}}/fukuen-kekkonshita-moto-kare/)
