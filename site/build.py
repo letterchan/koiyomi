@@ -44,11 +44,12 @@ def parse_front_matter(text):
 def render_cta(key):
     l = LINKS[key]
     points = "".join(f"<li>{p}</li>" for p in l.get("points", []))
+    pixel = f'<img border="0" width="1" height="1" src="{l["pixel"]}" alt="">' if l.get("pixel") else ""
     return f"""
 <div class="cta">
   <div class="cta-name">{l['name']}</div>
   <ul class="cta-points">{points}</ul>
-  <a class="cta-btn" href="{l['url']}" target="_blank" rel="nofollow noopener sponsored">{l.get('button', '公式サイトで初回特典を確認する')}</a>
+  <a class="cta-btn" href="{l['url']}" target="_blank" rel="nofollow noopener sponsored">{l.get('button', '公式サイトで初回特典を確認する')}</a>{pixel}
   <div class="cta-note">※広告（PR）。特典・料金は変更されることがあります。必ず公式サイトで最新条件を確認してください。</div>
 </div>
 """
