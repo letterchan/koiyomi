@@ -110,6 +110,11 @@ def main():
         shutil.rmtree(PUBLIC)
     PUBLIC.mkdir(parents=True)
     shutil.copytree(STATIC, PUBLIC / "static")
+    rootdir = ROOT / "root"
+    if rootdir.exists():
+        for f in rootdir.iterdir():
+            if f.is_file():
+                shutil.copy2(f, PUBLIC / f.name)
 
     tools = [p for p in pages if p["type"] == "tool"]
     articles = sorted([p for p in pages if p["type"] == "article"], key=lambda x: x["date"], reverse=True)
