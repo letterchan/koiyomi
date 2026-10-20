@@ -25,6 +25,22 @@ SITE = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))
 LINKS = json.loads((ROOT / "links.json").read_text(encoding="utf-8"))
 BASE_URL = os.environ.get("BASE_URL", SITE["base_url"]).rstrip("/")
 BASE_PATH = os.environ.get("BASE_PATH", SITE.get("base_path", "")).rstrip("/")
+REDIRECT_TO = os.environ.get("REDIRECT_TO", "").rstrip("/")
+
+
+def redirect_meta(slug):
+    """REDIRECT_TO があれば新ドメインへの meta refresh を返す。"""
+    if not REDIRECT_TO:
+        return ""
+    target = f"{REDIRECT_TO}/" if slug == "index" else f"{REDIRECT_TO}/{slug}/"
+    return f'<meta http-equiv="refresh" content="0;url={target}">'
+
+
+def canonical_for(slug, default):
+    if not REDIRECT_TO:
+        return default
+    return f"{REDIRECT_TO}/" if slug == "index" else f"{REDIRECT_TO}/{slug}/"
+
 
 CATEGORIES = SITE["categories"]  # key -> label
 
@@ -192,7 +208,8 @@ def main():
             base,
             title=p["title"],
             description=p.get("description", ""),
-            canonical=f"{BASE_URL}{p['url']}",
+            canonical=canonical_for(p['slug'], f"{BASE_URL}{p['url']}"),
+            redirect=redirect_meta(p['slug']),
             base_path=BASE_PATH,
             site_name=SITE["name"],
             tagline=SITE["tagline"],
@@ -229,7 +246,8 @@ def main():
         base,
         title=f"{SITE['name']}｜{SITE['tagline']}",
         description=SITE["description"],
-        canonical=f"{BASE_URL}{BASE_PATH}/",
+        canonical=canonical_for("index", f"{BASE_URL}{BASE_PATH}/"),
+        redirect=redirect_meta("index"),
         base_path=BASE_PATH,
         site_name=SITE["name"],
         tagline=SITE["tagline"],
@@ -250,7 +268,7 @@ def main():
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     sm += "".join(f"  <url><loc>{u}</loc></url>\n" for u in urls) + "</urlset>\n"
     (PUBLIC / "sitemap.xml").write_text(sm, encoding="utf-8")
-    (PUBLIC / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {BASE_URL}{BASE_PATH}/sitemap.xml\n", encoding="utf-8")
+    (PUBLIC / "robots.txt").write_text(("User-agent: *\nDisallow: /\n" if REDIRECT_TO else f"User-agent: *\nAllow: /\nSitemap: {BASE_URL}{BASE_PATH}/sitemap.xml\n"), encoding="utf-8")
     (PUBLIC / ".nojekyll").write_text("", encoding="utf-8")
     print(f"built {len(pages)} pages -> {PUBLIC}")
 
