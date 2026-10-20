@@ -27,13 +27,15 @@ function initQuiz(cfg){
     bar.style.width='100%';
     root.querySelectorAll('.q').forEach(function(el){el.classList.remove('active');});
     var r=cfg.result(total,answers);
-    var url=location.href.split('#')[0];
+    var cl=document.querySelector('link[rel="canonical"]');
+    var url=(cl&&cl.href)?cl.href:location.href.split('#')[0].split('?')[0];
     var text=cfg.shareText(r);
     var x='https://twitter.com/intent/tweet?text='+encodeURIComponent(text+' '+cfg.siteName)+'&url='+encodeURIComponent(url);
+    var th='https://www.threads.net/intent/post?text='+encodeURIComponent(text+' '+cfg.siteName+' '+url);
     var line='https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text);
     var res=root.querySelector('.result');
     res.innerHTML=(cfg.scoreLabel?'<div class="score-label">'+cfg.scoreLabel+'</div>':'')+'<div class="score">'+r.score+'</div><div class="rank">'+r.title+'</div>'+r.body+
-      '<div class="share"><a href="'+x+'" target="_blank" rel="noopener">Xで結果をシェア</a><a href="'+line+'" target="_blank" rel="noopener">LINEで送る</a><button type="button" class="retry">もう一度診断する</button></div>';
+      '<div class="share"><a href="'+x+'" target="_blank" rel="noopener">Xで結果をシェア</a><a href="'+th+'" target="_blank" rel="noopener">Threadsでシェア</a><a href="'+line+'" target="_blank" rel="noopener">LINEで送る</a><button type="button" class="retry">もう一度診断する</button></div>';
     res.classList.add('active');
     res.querySelector('.retry').addEventListener('click',function(){i=0;total=0;answers=[];res.classList.remove('active');show();});
     window.scrollTo({top:root.offsetTop-20,behavior:'smooth'});

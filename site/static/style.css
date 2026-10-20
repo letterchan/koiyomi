@@ -50,7 +50,7 @@ blockquote{margin:1em 0;padding:.6em 1em;background:#fff;border-left:4px solid v
 .quiz .score-label{text-align:center;font-size:.9rem;color:var(--muted);margin-top:.4em}
 .quiz .score{font-size:2.2rem;font-weight:800;color:var(--accent);text-align:center;margin:.2em 0}
 .quiz .rank{text-align:center;font-weight:700;font-size:1.2rem;margin-bottom:.6em}
-.quiz .share{display:flex;gap:8px;justify-content:center;margin:12px 0}
+.quiz .share{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0}
 .quiz .share a,.quiz .retry{font-family:inherit;border:1px solid var(--line);border-radius:999px;padding:6px 14px;text-decoration:none;font-size:.85rem;background:#fff;color:var(--fg);cursor:pointer}
 .form-row{display:grid;gap:6px;margin-bottom:12px}
 .form-row label{font-weight:700;font-size:.9rem}
